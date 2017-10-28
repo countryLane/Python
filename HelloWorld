@@ -1,0 +1,61 @@
+#!/usr/bin/env python
+
+def hello(name):
+    """helo name"""
+    print "hello" + + name
+
+
+# name = input("Your name?")
+# hello(name)
+
+class A():
+    """aaaaa"""
+    array = ['aaaa']
+
+    def __init__(self, array):
+        assert isinstance(array, list)
+        self.array.extend(array)
+
+    def addElement(self, number):
+        self.array.append(number)
+
+    def showArray(self):
+        print self.array
+
+    def getArray(self):
+        return self.array
+    @classmethod
+    def s(cls):
+        print cls
+
+
+a = A([1, '22'])
+# a.init()
+a.showArray()
+a.addElement(2)
+a.addElement("wangyi")
+a.showArray()
+print a.getArray()
+print hello.__doc__
+print A.__bases__
+print hasattr(a, 'array')
+print a.__dict__
+print type(a)
+print a.__class__
+A.s()
+
+print map(lambda x: x * x, range(10, 21, 2))
+
+
+class IterClass:
+    value = 0
+    def next(self):
+        self.value += 1
+        if self.value > 10:
+            raise StopIteration
+        return self.value
+    def __iter__(self):
+        return self
+
+iter = IterClass()
+print list(iter)
